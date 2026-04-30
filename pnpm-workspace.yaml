@@ -1,0 +1,7 @@
+packages:
+  - 'client'
+  - 'subgraph-locations'
+  - 'subgraph-reviews'
+  - 'final/client'
+  - 'final/subgraph-locations'
+  - 'final/subgraph-reviews'

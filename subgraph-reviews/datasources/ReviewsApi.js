@@ -1,4 +1,5 @@
-let {reviews} = require('./reviews_data.json');
+const reviewsData = require('./reviews_data.json');
+let reviews = reviewsData.reviews;
 
 class ReviewsAPI {
   getReview(id) {

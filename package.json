@@ -1,0 +1,9 @@
+{
+  "name": "odyssey-voyage-i",
+  "private": true,
+  "workspaces": [
+    "client",
+    "subgraph-locations",
+    "subgraph-reviews"
+  ]
+}

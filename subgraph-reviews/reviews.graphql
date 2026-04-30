@@ -1,3 +1,5 @@
+extend schema @link(url: "https://specs.apollo.dev/federation/v2.7", import: ["@key"])
+
 type Query {
   "The three latest reviews submitted for FlyBy's locations"
   latestReviews: [Review!]!
@@ -9,6 +11,21 @@ type Review {
   comment: String
   "A number from 1 - 5 with 1 being lowest and 5 being highest"
   rating: Int
+  "The location that this review is for"
+  location: Location
+}
+
+# This type is used to reference the Location type from the locations subgraph. 
+# The @key directive indicates that the id field is the primary key for this type, 
+# and resolvable: false indicates that this type cannot be resolved by this subgraph, 
+# but can be referenced by other subgraphs.
+ type Location @key(fields: "id") {
+  id: ID!
+  "The average rating for this location, calculated from all submitted reviews"
+  overallRating: Float
+  "All submitted reviews for this location"
+  reviewsForLocation: [Review]!
+
 }
 
 type Mutation {
